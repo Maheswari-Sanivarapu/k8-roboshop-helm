@@ -1,0 +1,6 @@
+deployment:
+  imageURL: maheswari450/frontend-optimise
+  imageVersion: v1
+hpa:
+  maxreplicas: 10
+  utilization: 75

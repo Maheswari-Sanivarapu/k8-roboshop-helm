@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redis
+  namespace: roboshop
+  labels:
+    project: roboshop
+    component: redis
+    tier: DB
+spec:
+  replicas: 2
+  serviceName: "redis-headless"
+  selector:
+    matchLabels:
+      project: roboshop
+      component: redis
+      tier: DB
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        component: redis
+        tier: DB
+    spec:
+      containers:
+      - name: redis
+        image: redis:{{ .Values.statefulset.imageVersion }}
+        volumeMounts:
+        - name: redis-data-pvc
+          mountPath: /data
+  volumeClaimTemplates:
+  - metadata:
+      name: redis-data-pvc
+    spec:
+      storageClassName: ebs-sc
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 2Gi

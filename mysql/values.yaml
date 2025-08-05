@@ -1,0 +1,3 @@
+statefulset:
+  imageURL: maheswari450/mysql-optimise
+  imageVersion: v1
