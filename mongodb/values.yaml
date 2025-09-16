@@ -1,3 +1,4 @@
 statefulset:
-  imageURL: maheswari450/mongodb-optimise
+  #imageURL: maheswari450/mongodb-optimise
+  imageURL: joindevops/mongodb
   imageVersion: v1
