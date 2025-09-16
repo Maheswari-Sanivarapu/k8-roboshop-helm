@@ -4,5 +4,5 @@ metadata:
   name: ebs-sc
 provisioner: ebs.csi.aws.com
 reclaimPolicy: Retain
-volumeBindingMode: Immediate
-#volumeBindingMode: WaitForFirstConsumer
+#volumeBindingMode: Immediate
+volumeBindingMode: WaitForFirstConsumer
